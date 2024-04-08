@@ -1,5 +1,5 @@
 import pandas as pd
 
-df = pd.read_csv('data_1d.csv')
-
-print(df)
+if __name__ == "__main__":
+    df = pd.read_csv('data_1d.csv')
+    print(df)

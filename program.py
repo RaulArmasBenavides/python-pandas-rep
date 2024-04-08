@@ -153,9 +153,9 @@ class AdministradorOperarios:
     dfOperarios.to_excel(self.archivo)
     #print(self.dfOperarios)
 
-
-# Programa principal
-try:
-    formOperario = IUOperario()
-except Exception as e:
-    print(f"Error al iniciar la IU: {e}")
+if __name__ == "__main__":
+ 
+  try:
+      formOperario = IUOperario()
+  except Exception as e:
+      print(f"Error al iniciar la IU: {e}")

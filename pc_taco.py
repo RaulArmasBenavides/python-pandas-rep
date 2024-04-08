@@ -1,8 +1,7 @@
 import pandas as pd
 import random
 
-# Lista para almacenar las transacciones
-lista = [] 
+
 
 # Clase Transaccion
 class Transaccion:
@@ -24,12 +23,12 @@ def registrar_transaccion(num_cajero, dni):
      monto = float(input("Ingresar monto S/.: "))
      return Transaccion(num_cajero, dni, tipo, monto)
 
-def encontrar_mayor_monto_transaccion():
+def encontrar_mayor_monto_transaccion(lista):
     if lista:
         transaccion_mayor_monto = max(lista, key=lambda x: x.monto)
         print(f"La transacción con mayor monto es {transaccion_mayor_monto.tipo} de S/.{transaccion_mayor_monto.monto}")
 
-def agrupar_transacciones():
+def agrupar_transacciones(lista):
      if lista:
          df = pd.DataFrame([vars(o) for o in lista])
          df['monto'] = pd.to_numeric(df['monto'], errors='coerce')
@@ -39,18 +38,19 @@ def agrupar_transacciones():
          print(df.groupby(['num_cajero']).agg({'monto': ['count']}))
 
 # Bloque principal
-print("########## REGISTRO DE TRANSFERENCIA ###########")
-cajeros = "1234567"
+if __name__ == "__main__":
+# Lista para almacenar las transacciones
+    lista = [] 
+    print("########## REGISTRO DE TRANSFERENCIA ###########")
+    cajeros = "1234567"
 
-while True:
-    dni = input("Ingrese DNI (o escriba 'ok' para finalizar): ")
-    if dni.lower() == "ok":
-        break
-    num_cajero = random.choice(cajeros)
-    lista.append(registrar_transaccion(num_cajero, dni))
-
-for obj in lista:
-    print(obj)
-
-encontrar_mayor_monto_transaccion()
-agrupar_transacciones()
+    while True:
+        dni = input("Ingrese DNI (o escriba 'ok' para finalizar): ")
+        if dni.lower() == "ok":
+            break
+        num_cajero = random.choice(cajeros)
+        lista.append(registrar_transaccion(num_cajero, dni))
+    for obj in lista:
+        print(obj)
+    encontrar_mayor_monto_transaccion(lista)
+    agrupar_transacciones(lista)

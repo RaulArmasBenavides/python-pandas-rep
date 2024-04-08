@@ -53,10 +53,7 @@ denominator = X.dot(X) - X.mean() * X.sum()
 a = ( X.dot(Y) - Y.mean()*X.sum() ) / denominator
 b = ( Y.mean() * X.dot(X) - X.mean() * X.dot(Y) ) / denominator
 
-
 Yhat = a*X + b
-
-
 plt.title('Tendencias', fontsize=15)
 plt.xlabel('Fº')
 plt.ylabel('Espuma')
