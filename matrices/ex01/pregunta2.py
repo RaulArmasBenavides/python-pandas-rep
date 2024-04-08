@@ -32,35 +32,36 @@ def crea_matriz(fil, col):
     return np.array(matriz, dtype=float)
 
 # Main loop
-while True:
-    print("          CALCULADORA DE MATRICES          ") 
-    # Omitimos la tabla de operadores para simplificar
-    
-    fil = validar_entero(input("Indique número de filas: "))
-    col = validar_entero(input("Indique número de columnas: "))
-    
-    A = crea_matriz(fil, col)
-    B = crea_matriz(fil, col)
-    
-    print("\nMatriz A:\n", A)
-    print("\nMatriz B:\n", B)
-    
+if __name__ == "__main__":
     while True:
-        oper = input("Introduzca operador: ")
-        while oper not in ["+", "-", "*", "C"]:
-            oper = input("Introduzca un operador válido: ")
+        print("          CALCULADORA DE MATRICES          ") 
+        # Omitimos la tabla de operadores para simplificar
         
-        if oper == "+":
-            resultado = A + B
-        elif oper == "-":
-            resultado = A - B
-        elif oper == "*":
-            resultado = np.dot(A, B)
-        else:
-            break
+        fil = validar_entero(input("Indique número de filas: "))
+        col = validar_entero(input("Indique número de columnas: "))
         
-        print("\nRESULTADO\n", resultado)
+        A = crea_matriz(fil, col)
+        B = crea_matriz(fil, col)
+        
+        print("\nMatriz A:\n", A)
+        print("\nMatriz B:\n", B)
+        
+        while True:
+            oper = input("Introduzca operador: ")
+            while oper not in ["+", "-", "*", "C"]:
+                oper = input("Introduzca un operador válido: ")
+            
+            if oper == "+":
+                resultado = A + B
+            elif oper == "-":
+                resultado = A - B
+            elif oper == "*":
+                resultado = np.dot(A, B)
+            else:
+                break
+            
+            print("\nRESULTADO\n", resultado)
 
-    conti = ns(input("¿Reiniciar cálculos? (n para finalizar): "))
-    if conti == "n":
-        break
+        conti = ns(input("¿Reiniciar cálculos? (n para finalizar): "))
+        if conti == "n":
+            break
