@@ -30,7 +30,7 @@ if __name__ == "__main__":
     # si la data está parametrizada en un excel
     X = []
     Y = []
-    for line in open('data_1d.csv'):
+    for line in open('ejercicio2/dispersion.csv'):
         x, y = line.split(',')
         X.append(float(x))
         Y.append(float(y))
